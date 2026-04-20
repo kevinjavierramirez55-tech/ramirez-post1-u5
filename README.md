@@ -75,23 +75,23 @@ http://localhost:8080/gestion-tareas/tareas
 
 ### Compilacion del proyecto
 
-![Compilacion Maven](evidencias/captura_app_compilando.png)
+![Compilacion Maven](evidencias/app_compilando.png)
 
-### Lista inicial de tareas
+### Lista inicial de las tareas
 
-![Lista de tareas](evidencias/captura_lista_tareas.png)
+![Lista de tareas](evidencias/lista_tareas.png)
 
 ### Registro de nueva tarea
 
-![Nueva tarea](evidencias/captura_nueva_tarea.png)
+![Nueva tarea](evidencias/nueva_tarea.png)
 
-### Validacion de titulo vacio
+### Error de titulo vacio
 
-![Mensaje de error](evidencias/captura_mensaje_error.png)
+![Mensaje de error](evidencias/error_titulo_vacio.png)
 
-### Eliminacion de tarea
+### Eliminar tarea
 
-![Eliminar tarea](evidencias/captura_eliminar_tarea.png)
+![Eliminar tarea](evidencias/eliminar_tarea.png)
 
 ## Checkpoint de verificacion
 
@@ -100,7 +100,3 @@ http://localhost:8080/gestion-tareas/tareas
 - El formulario agrega tareas correctamente y aplica PRG.
 - La validacion en servidor muestra el mensaje de error cuando el titulo esta vacio.
 - La eliminacion de tareas funciona correctamente.
-
-## Recomendacion para la entrega
-
-Para cumplir con el enunciado del curso, en GitHub el repositorio debe publicarse con el nombre `apellido-post1-u5`.
