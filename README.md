@@ -1,127 +1,97 @@
-# Gestión de Tareas con Servlets y JSP
+# Gestion de Tareas con Servlets y JSP
 
-## Autor
+Aplicacion web desarrollada en Java Web para la Unidad 5 de Programacion Web. El proyecto implementa un `Servlet` que procesa solicitudes HTTP `GET` y `POST`, valida formularios en el servidor, reenvia informacion a una vista JSP mediante `RequestDispatcher` y aplica el patron Post/Redirect/Get.
 
-**Nombre:** Jhoseth Esneider Rozo Carrillo  
-**Código:** 02230131027  
-**Programa:** Ingeniería de Sistemas  
-**Unidad:** Unidad 5 – Fundamentos de Java Web (Servlets y JSP)
-**Actividad:** Post-Contenido 1
-**Fecha:** 16/04/2026
+## Datos del proyecto
 
-## Objetivo
+- `groupId`: `com.ejemplo`
+- `artifactId`: `gestion-tareas`
+- Java: `17`
+- Empaquetado: `war`
+- Servidor recomendado: `Apache Tomcat 10.x`
 
-Implementar una aplicación web en Java que:
+## Funcionalidades implementadas
 
-- Procese peticiones HTTP GET y POST
-- Gestione datos desde formularios HTML
-- Aplique validación en el servidor
-- Transfiera datos a una vista JSP usando RequestDispatcher
-- Implemente el patrón Post/Redirect/Get (PRG)
+- Listado de tareas existentes mediante `GET /tareas`
+- Registro de nuevas tareas mediante `POST /tareas`
+- Validacion del titulo en el servidor
+- Eliminacion de tareas por `id` mediante `POST /tareas`
+- Vista JSP ubicada en `WEB-INF/views/tareas.jsp`
+- Redireccion posterior al `POST` con el patron PRG
 
----
+## Estructura principal
 
-## Descripción del Proyecto
+```text
+src/main/java/com/ejemplo/model/Tarea.java
+src/main/java/com/ejemplo/servlet/TareasServlet.java
+src/main/webapp/index.jsp
+src/main/webapp/WEB-INF/web.xml
+src/main/webapp/WEB-INF/views/tareas.jsp
+```
 
-La aplicación permite gestionar una lista de tareas en memoria:
+## Requisitos
 
-✔ Listar tareas existentes (GET)  
-✔ Agregar nuevas tareas (POST)  
-✔ Eliminar tareas por ID (POST)  
-✔ Validar datos en el servidor  
-✔ Evitar reenvío de formularios con PRG
+- JDK 17 o superior
+- Maven 3.8 o superior
+- Apache Tomcat 10.x
+- IntelliJ IDEA o Eclipse
 
----
+## Ejecucion del proyecto
 
-## Tecnologías Utilizadas
+1. Clonar el repositorio.
+2. Abrir el proyecto en IntelliJ IDEA como proyecto Maven.
+3. Verificar que el SDK del proyecto este configurado en Java 17.
+4. Ejecutar el comando:
 
-- Java 17
-- Servlets (Jakarta EE 10)
-- JSP + JSTL
-- Maven
-- Apache Tomcat 10
-- HTML5 + CSS
+```bash
+mvn clean package
+```
 
----
+5. Configurar un servidor Tomcat local en el IDE.
+6. Desplegar el artefacto `gestion-tareas.war exploded`.
+7. Abrir en el navegador:
 
-## Estructura del Proyecto
+```text
+http://localhost:8080/gestion-tareas/tareas
+```
 
-gestiontareas
-└── src
-└── main
-├── java
-│ └── com.ejemplo
-│ ├── model
-│ │ └── Tarea.java
-│ └── servlet
-│ └── TareasServlet.java
-└── webapp
-├── index.jsp
-└── WEB-INF
-├── web.xml
-└── views
-└── tareas.jsp
+## Flujo esperado
 
----
+- Al ingresar a `/tareas`, se muestran 2 tareas de ejemplo cargadas en `init()`.
+- Al agregar una tarea valida, el sistema redirige nuevamente a `/tareas`.
+- Al enviar el formulario sin titulo, se muestra el mensaje `El titulo no puede estar vacio`.
+- Al eliminar una tarea, esta desaparece de la tabla y se mantiene la URL `/tareas`.
 
-## Configuración del Proyecto
+## Evidencias
 
-### pom.xml
+### Compilacion del proyecto
 
-- Packaging: `war`
-- Java: 17
-- Dependencias:
-  - `jakarta.servlet-api`
-  - `jakarta.servlet.jsp.jstl`
+![Compilacion Maven](evidencias/captura_app_compilando.png)
 
----
+### Lista inicial de tareas
 
-## Ejecución del Proyecto
+![Lista de tareas](evidencias/captura_lista_tareas.png)
 
-### 1. Clonar repositorio
+### Registro de nueva tarea
 
-git clone https://github.com/jerc31/rozo-post1-u5.git
+![Nueva tarea](evidencias/captura_nueva_tarea.png)
 
-### 2. Abrir en IntelliJ IDEA
+### Validacion de titulo vacio
 
-### 3. Compilar proyecto
+![Mensaje de error](evidencias/captura_mensaje_error.png)
 
-### 4. Configurar Apache Tomcat
+### Eliminacion de tarea
 
-1. Descargar e instalar Tomcat 10
-2. Ejecutar startup.bat
-3. Acceder a:
-   http://localhost:8080
+![Eliminar tarea](evidencias/captura_eliminar_tarea.png)
 
-### 5. Desplegar aplicación
+## Checkpoint de verificacion
 
-### 6. Ejecutar aplicación
+- La aplicacion compila sin errores con `mvn clean package`.
+- La pagina muestra las dos tareas iniciales.
+- El formulario agrega tareas correctamente y aplica PRG.
+- La validacion en servidor muestra el mensaje de error cuando el titulo esta vacio.
+- La eliminacion de tareas funciona correctamente.
 
-Abrir en el navegador en:
-http://localhost:8080/gestiontareas/tareas
+## Recomendacion para la entrega
 
----
-
-## Capturas del Proyecto
-
-Las siguientes capturas se encuentran en la carpeta `/evidencias/`:
-
-## App compilando sin errores
-
-![Captura app_compilando](evidencias/captura_app_compilando.png)
-
-## App con lista de 2 tareas
-
-![Captura lista_tareas](evidencias/captura_lista_tareas.png)
-
-## Agregar nueva tarea
-
-![Captura nueva_tarea](evidencias/captura_nueva_tarea.png)
-
-## Mensaje de error
-
-![Captura mensaje_error](evidencias/captura_mensaje_error.png)
-
-## Eliminar tarea de la lista
-
-![Captura eliminar_tarea](evidencias/captura_eliminar_tarea.png)
+Para cumplir con el enunciado del curso, en GitHub el repositorio debe publicarse con el nombre `apellido-post1-u5`.
