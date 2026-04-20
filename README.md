@@ -1,4 +1,4 @@
-# Gestion de Tareas con Servlets y JSP
+# Gestión de Tareas con Servlets y JSP
 
 ## Autor
 
@@ -7,9 +7,9 @@
 - **Programa:** Ingeniería de Sistemas
 - **Unidad:** 5 Fundamentos de Java Web
 - **Actividad:** Post-Contenido 1
-- **Fecha:** 19/04/2026
+- **Fecha:** 20/04/2026
 
-Aplicacion web desarrollada en Java Web para la Unidad 5 de Programacion Web. El proyecto implementa un `Servlet` que procesa solicitudes HTTP `GET` y `POST`, valida formularios en el servidor, reenvia informacion a una vista JSP mediante `RequestDispatcher` y aplica el patron Post/Redirect/Get.
+Aplicación web desarrollada en Java Web para la Unidad 5 de Programación Web. El proyecto implementa un `Servlet` que procesa solicitudes HTTP `GET` y `POST`, valida formularios en el servidor, reenvía información a una vista JSP mediante `RequestDispatcher` y aplica el patrón Post/Redirect/Get.
 
 ## Datos del proyecto
 
@@ -23,10 +23,10 @@ Aplicacion web desarrollada en Java Web para la Unidad 5 de Programacion Web. El
 
 - Listado de tareas existentes mediante `GET /tareas`
 - Registro de nuevas tareas mediante `POST /tareas`
-- Validacion del titulo en el servidor
-- Eliminacion de tareas por `id` mediante `POST /tareas`
+- Validación del título en el servidor
+- Eliminación de tareas por `id` mediante `POST /tareas`
 - Vista JSP ubicada en `WEB-INF/views/tareas.jsp`
-- Redireccion posterior al `POST` con el patron PRG
+- Redirección posterior al `POST` con el patrón PRG
 
 ## Estructura principal
 
@@ -45,11 +45,11 @@ src/main/webapp/WEB-INF/views/tareas.jsp
 - Apache Tomcat 10.x
 - IntelliJ IDEA o Eclipse
 
-## Ejecucion del proyecto
+## Ejecución del proyecto
 
 1. Clonar el repositorio.
 2. Abrir el proyecto en IntelliJ IDEA como proyecto Maven.
-3. Verificar que el SDK del proyecto este configurado en Java 17.
+3. Verificar que el SDK del proyecto esté configurado en Java 17.
 4. Ejecutar el comando:
 
 ```bash
@@ -67,15 +67,15 @@ http://localhost:8080/gestion-tareas/tareas
 ## Flujo esperado
 
 - Al ingresar a `/tareas`, se muestran 2 tareas de ejemplo cargadas en `init()`.
-- Al agregar una tarea valida, el sistema redirige nuevamente a `/tareas`.
-- Al enviar el formulario sin titulo, se muestra el mensaje `El titulo no puede estar vacio`.
+- Al agregar una tarea válida, el sistema redirige nuevamente a `/tareas`.
+- Al enviar el formulario sin título, se muestra el mensaje `El título no puede estar vacío`.
 - Al eliminar una tarea, esta desaparece de la tabla y se mantiene la URL `/tareas`.
 
 ## Evidencias
 
-### Compilacion del proyecto
+### Compilación del proyecto
 
-![Compilacion Maven](evidencias/app_compilando.png)
+![Compilación Maven](evidencias/app_compilando.png)
 
 ### Lista inicial de las tareas
 
@@ -85,7 +85,7 @@ http://localhost:8080/gestion-tareas/tareas
 
 ![Nueva tarea](evidencias/nueva_tarea.png)
 
-### Error de titulo vacio
+### Error de título vacío
 
 ![Mensaje de error](evidencias/error_titulo_vacio.png)
 
@@ -93,10 +93,10 @@ http://localhost:8080/gestion-tareas/tareas
 
 ![Eliminar tarea](evidencias/eliminar_tarea.png)
 
-## Checkpoint de verificacion
+## Checkpoint de verificación
 
-- La aplicacion compila sin errores con `mvn clean package`.
-- La pagina muestra las dos tareas iniciales.
+- La aplicación compila sin errores con `mvn clean package`.
+- La página muestra las dos tareas iniciales.
 - El formulario agrega tareas correctamente y aplica PRG.
-- La validacion en servidor muestra el mensaje de error cuando el titulo esta vacio.
-- La eliminacion de tareas funciona correctamente.
+- La validación en servidor muestra el mensaje de error cuando el título está vacío.
+- La eliminación de tareas funciona correctamente.
