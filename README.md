@@ -1,5 +1,14 @@
 # Gestion de Tareas con Servlets y JSP
 
+## Autor
+
+- **Nombre:** Kevin Ramirez
+- **Código:** 02220131008
+- **Programa:** Ingeniería de Sistemas
+- **Unidad:** 5 Fundamentos de Java Web
+- **Actividad:** Post-Contenido 1
+- **Fecha:** 19/04/2026
+
 Aplicacion web desarrollada en Java Web para la Unidad 5 de Programacion Web. El proyecto implementa un `Servlet` que procesa solicitudes HTTP `GET` y `POST`, valida formularios en el servidor, reenvia informacion a una vista JSP mediante `RequestDispatcher` y aplica el patron Post/Redirect/Get.
 
 ## Datos del proyecto
