@@ -25,37 +25,31 @@ public class TareasServlet extends HttpServlet {
         tareas.add(new Tarea(contadorId++, "Implementar ciclo GET/POST"));
     }
 
-    /**
-     * GET /tareas — mostrar lista
-     */
+    /** GET /tareas - mostrar lista */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
         req.setAttribute("tareas", tareas);
-        req.getRequestDispatcher("/WEB-INF/views/tareas.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/tareas.jsp")
+                .forward(req, resp);
     }
 
-    /**
-     * POST /tareas — agregar o eliminar tarea
-     */
+    /** POST /tareas - agregar o eliminar tarea */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
         req.setCharacterEncoding("UTF-8");
         String accion = req.getParameter("accion");
 
         if ("agregar".equals(accion)) {
             String titulo = req.getParameter("titulo");
-
             if (titulo == null || titulo.isBlank()) {
                 req.setAttribute("error", "El título no puede estar vacío");
                 req.setAttribute("tareas", tareas);
-                req.getRequestDispatcher("/WEB-INF/views/tareas.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/views/tareas.jsp")
+                        .forward(req, resp);
                 return;
             }
-
             tareas.add(new Tarea(contadorId++, titulo.trim()));
 
         } else if ("eliminar".equals(accion)) {
